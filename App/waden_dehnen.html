@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div>
+            <a href="dehnen.html" class="arrow-back"><</a>
+            <h1>Waden dehnen</h1>
+        </div>
+    </header>
+    <div class="content2">
+        <p id="anleitung"><details id="box"><summary>So gehts!</summary>Stelle deine beide Füße hintereinander, so dass sie parallel nach vorne zeigen. Verlagere nun dein Körpergewicht auf das vordere Bein und drücke die Verse des hinteren Beines auf den Boden. Versuche den Kontakt zum Boden zu halten, wärend du das Knie des hinteren Beines langsam nach vorne streckst. Wenn du alles richtig gemacht hast, solltest du nun eine Dehnung in der Wade spüren.</details></p>
+        <p id="time_int">20</p>
+        <button id="button1" class="button1" onclick="start_and_stop()">Starten</button>
+    </div>
+    <footer>
+        <a href=""></a>
+        <a href=""></a>
+        <a href=""></a>
+    </footer>
+    <script>
+        let time = 20;
+        let timer_is_running = false;
+        let part = 1;
+        let back = false;
+        let sound = new Audio("right.mp3");
+        let music = new Audio("sport_song.mp3");
+
+        function timer() {
+            if (timer_is_running == true) {
+                box.style.display = "none";
+                anleitung.innerHTML = "Position halten!";
+                time_int.innerHTML = time;
+                time -= 1;
+                if (time < 0) {
+                    time = 20;
+                    time_int.innerHTML = time;
+                    timer_is_running = false;
+                    let music = new Audio("sport_song.mp3");
+                    if (part == 1) {
+                        part += 1;
+                        anleitung.innerHTML = "Bein Wechseln!";
+                        button1.innerHTML = "Starten";
+                    } else {
+                        anleitung.innerHTML = "<span style='font-size: 5vh; color: green;'>Fertig!</span>";
+                        time_int.innerHTML = "";
+                        button1.innerHTML = "Zurück";
+                        back = true;
+                        sound.play();
+                    } 
+                }
+            }
+        }
+        setInterval(timer, 1000);
+
+        function start_and_stop() {
+            if (timer_is_running == true) {
+                timer_is_running = false;
+                button1.innerHTML = "Starten";
+                music.pause();
+            } else {
+                timer_is_running = true;
+                button1.innerHTML = "Stoppen";
+                music.play();
+            }
+            if (back == true) {
+                window.location.href = "dehnen.html";
+            }
+        }
+    </script>
+</body>
+</html>

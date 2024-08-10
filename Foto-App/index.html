@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Photo Place</title>
+  </head>
+  <body>
+    <header>
+      <h1 onclick="navigation('home')">Photo Place</h1>
+      <div>
+        <a onclick="navigation('pflanzen')">Pflanzen</a>
+        <a onclick="navigation('tiere')">Tiere</a>
+        <a onclick="navigation('landschaften')">Landschaften</a>
+      </div> 
+    </header>
+    <div class="content">
+      <div id="home">
+        <div id="green_div"></div>
+        <div id="brown_div"></div>
+        <div id="yellow_div"></div>
+        <h2>Wilkommen bei Photo Place!<br> Hier Kannst du Bilder rund ums Thema Natur<br>Herunterladen!</h2>
+      </div>
+      <div id="pflanzen">
+        <img src="blume1.jpg" alt="">
+        <button src="blume1.jpg" download="blume1.jpg" class="download">Downloaden</button>
+        <img src="" alt="">
+      </div>
+      <div id="tiere">
+
+      </div>
+      <div id="landschaften">
+
+      </div>
+    </div>
+    <footer>
+      <img onclick="navigation('pflanzen')" src="./textures/baum_icon.png">
+      <img onclick="navigation('tiere')" src="./textures/hase-icon.png">
+      <img onclick="navigation('landschaften')" src="./textures/berge-icon.png">
+    </footer>
+    <script src="main.js"></script>
+  </body>
+</html>
